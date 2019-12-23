@@ -29,8 +29,8 @@ export default {
     axios({
       url: "/v2/page?pageId=1&tabId=1&currentPage=1&pageSize=8&_=1576916525082"
     }).then(res=>{
-      console.log(res.data.data.modules[0])
-      this.looplist = res.data.data
+      console.log(res.data.data.modules[0].moduleContent.banners)
+      this.looplist = res.data.data.modules[0].moduleContent.banners
       // Indicator.close();
     })
     window.onscroll = this.handleScroll
@@ -43,5 +43,11 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-
+  .swiper-slide {
+    height: 4.98rem;
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
 </style>

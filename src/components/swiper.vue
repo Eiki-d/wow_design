@@ -15,7 +15,7 @@ export default {
       // console.log(this.swipername)
       var defaultProps = {
         loop:true,
-
+        autoplay:true,
         pagination: {
           el: ".swiper-pagination"
         }
@@ -28,5 +28,15 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-   
+   .swiper-pagination {
+      background-color: rgba(255,255,255,0.45);
+      width: auto;
+      height: 0.2rem;
+      line-height: 0.143rem;
+      border-radius: 1rem;
+      position: absolute;
+      left: 50%;
+      bottom: 0.24rem;
+      transform: translateX(-50%);
+   }
 </style>
