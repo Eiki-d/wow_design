@@ -12,6 +12,7 @@ import classify from '@/views/classify'
 import message from '@/views/message'
 
 import login from '@/views/login'
+import detail from '@/views/detail'
 
 
 Vue.use(VueRouter)
@@ -56,6 +57,10 @@ const routes = [
   {
     path: '/message',
     component: message
+  },
+  {
+    path: '/detail',
+    component: detail
   },
   {
     path: '/login',
