@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div class="register_wrap">
+    <div class="header_other_register">
+      <h3>注册</h3>
+      <router-link tag="a" to="/login">登录</router-link>
+    </div>
+    <div class="container">
+      <form action="/blog/create" method="POST" class="tabBox">
+          <div class="form-group up">
+            <input type="username" class="form-control" id="username" placeholder="请输入手机号" />
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control" id="password" placeholder="请输入验证码" />
+          </div>
+      </form>
+      <button type="submit" class="btn btn-default btn-lg btn-block">注册</button>
+    </div>
+  </div>
+
+<script>
+
+ window.οnlοad=function(){
+                var oUser=document.getElementById('username');
+                var oPwd=document.getElementById('password');
+                var oBtn=document.getElementById('btn');
+                oBtn.οnclick=function(){
+                    var upData=null;
+                    var repeat=null;
+                    if (oUser.value&&oPwd.value) {
+                        if (window.localStorage.getItem('list')) {
+                            upData={'username':oUser.value,'password':oPwd.value};
+                            var dataJson=window.localStorage.getItem('list');
+                            dataJson=eval('('+dataJson+')');
+                            for (var i=0;i<dataJson.length;i++) {
+                                if (dataJson[i].username==upData.username) {
+                                    alert('用户名重复');
+                                    repeat=1;
+                                }
+                            }
+                            if (repeat==null) {
+                                alert('注册成功');
+                                dataJson.push(upData);
+                                dataJson=JSON.stringify(dataJson);
+                                window.localStorage.setItem('list',dataJson);
+                                console.log(window.localStorage.getItem('list'));
+                            }
+                        } else {
+                            upData={'username':oUser.value,'password':oPwd.value};
+                            console.log(upData);
+                            var data=[];
+                            data.push(upData);
+                            data=JSON.stringify(data);
+                            window.localStorage.setItem('list',data);
+                            alert('注册成功');
+                            console.log(window.localStorage.getItem('list'));
+                        }
+                    }
+                }
+            }
+</script> 
+</body>
+</html>
+  

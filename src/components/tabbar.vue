@@ -28,11 +28,11 @@ export default {
           title: '购物车',
           icon: 'icon-gouwuche'
         },
-        {
-          path: '/message',
-          title: '消息',
-          icon: 'icon-xiaoxi'
-        },
+        // {
+        //   path: '/message',
+        //   title: '消息',
+        //   icon: 'icon-xiaoxi'
+        // },
         {
           path: '/center',
           title: '我',
@@ -45,20 +45,20 @@ export default {
 </script>
 <style lang="scss" scoped>
   .bottom-tab {
-    width: 7.5rem;
+    width:100%;
     height: 0.88rem;
     position: fixed;
-    margin: 0 auto;
     bottom: 0;
     background: #fff;
     border-top: 1px solid #f5f5f5;
     z-index: 999;
     ul {
-      width: 100%;
+      // width: 100%;
       height: 100%;
+      display: flex;
+      justify-content: space-around;
       li {
         float: left;
-        width: 20%;
         height: 100%;
         // font-size: 0rem;
         color: #000;
@@ -69,6 +69,9 @@ export default {
         span {
           font-size: 0.2rem;
         }
+        // i {
+        //   // font-weight: 600;
+        // }
       }
     }
   }
