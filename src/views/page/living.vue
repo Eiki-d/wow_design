@@ -1,3 +1,4 @@
 <template>
-  <div>living</div>
+  <div>living
+  </div>
 </template>

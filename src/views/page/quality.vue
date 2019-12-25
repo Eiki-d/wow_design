@@ -1,3 +1,4 @@
 <template>
-  <div>quality</div>
+  <div>quality
+  </div>
 </template>

@@ -13,6 +13,20 @@
       "unicode_decimal": 58926
     },
     {
+      "icon_id": "354577",
+      "name": "减号",
+      "font_class": "iconfontmove",
+      "unicode": "e625",
+      "unicode_decimal": 58917
+    },
+    {
+      "icon_id": "383637",
+      "name": "纸飞机",
+      "font_class": "zhifeiji",
+      "unicode": "e629",
+      "unicode_decimal": 58921
+    },
+    {
       "icon_id": "429242",
       "name": "对号",
       "font_class": "right-1",
@@ -34,6 +48,13 @@
       "unicode_decimal": 58890
     },
     {
+      "icon_id": "1068814",
+      "name": "收货地址",
+      "font_class": "weibiaoti2fuzhi08",
+      "unicode": "e626",
+      "unicode_decimal": 58918
+    },
+    {
       "icon_id": "1272090",
       "name": "首页",
       "font_class": "shouye-1",
@@ -48,11 +69,32 @@
       "unicode_decimal": 58927
     },
     {
+      "icon_id": "1305451",
+      "name": "标签",
+      "font_class": "biaoqian",
+      "unicode": "e63d",
+      "unicode_decimal": 58941
+    },
+    {
       "icon_id": "1471048",
       "name": "消息",
       "font_class": "xiaoxi",
       "unicode": "e673",
       "unicode_decimal": 58995
+    },
+    {
+      "icon_id": "1486809",
+      "name": "等待支付",
+      "font_class": "dengdaizhifu",
+      "unicode": "e627",
+      "unicode_decimal": 58919
+    },
+    {
+      "icon_id": "1687288",
+      "name": "订单",
+      "font_class": "ziyuan",
+      "unicode": "e63c",
+      "unicode_decimal": 58940
     },
     {
       "icon_id": "2594636",
@@ -62,11 +104,102 @@
       "unicode_decimal": 58881
     },
     {
+      "icon_id": "2668432",
+      "name": "箭头",
+      "font_class": "jiantou",
+      "unicode": "e64a",
+      "unicode_decimal": 58954
+    },
+    {
+      "icon_id": "2681678",
+      "name": "待收货",
+      "font_class": "daishouhuo",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "2743875",
+      "name": "标签",
+      "font_class": "biaoqian1",
+      "unicode": "e63e",
+      "unicode_decimal": 58942
+    },
+    {
+      "icon_id": "3050815",
+      "name": "箭头",
+      "font_class": "arrow",
+      "unicode": "e61b",
+      "unicode_decimal": 58907
+    },
+    {
+      "icon_id": "3588618",
+      "name": "纸飞机",
+      "font_class": "zhifeiji1",
+      "unicode": "e70e",
+      "unicode_decimal": 59150
+    },
+    {
+      "icon_id": "3677332",
+      "name": "向下实心箭头",
+      "font_class": "arrow-bottom-small",
+      "unicode": "e504",
+      "unicode_decimal": 58628
+    },
+    {
+      "icon_id": "4009781",
+      "name": "向下实心箭头",
+      "font_class": "tri-up-mini",
+      "unicode": "e694",
+      "unicode_decimal": 59028
+    },
+    {
+      "icon_id": "4187053",
+      "name": "AK-JT飞机",
+      "font_class": "jt_feiji",
+      "unicode": "e598",
+      "unicode_decimal": 58776
+    },
+    {
+      "icon_id": "4933312",
+      "name": "飞机",
+      "font_class": "feiji",
+      "unicode": "e723",
+      "unicode_decimal": 59171
+    },
+    {
       "icon_id": "4954933",
       "name": "购物车",
       "font_class": "gouwuche1",
       "unicode": "e657",
       "unicode_decimal": 58967
+    },
+    {
+      "icon_id": "5327492",
+      "name": "飞机",
+      "font_class": "feiji1",
+      "unicode": "e704",
+      "unicode_decimal": 59140
+    },
+    {
+      "icon_id": "5831304",
+      "name": "删除",
+      "font_class": "shanchu",
+      "unicode": "e64b",
+      "unicode_decimal": 58955
+    },
+    {
+      "icon_id": "6297881",
+      "name": "收货地址",
+      "font_class": "shouhuodizhi-",
+      "unicode": "e645",
+      "unicode_decimal": 58949
+    },
+    {
+      "icon_id": "7093675",
+      "name": "收货地址",
+      "font_class": "shouhuodizhi",
+      "unicode": "e71e",
+      "unicode_decimal": 59166
     },
     {
       "icon_id": "7434422",
@@ -76,11 +209,32 @@
       "unicode_decimal": 58908
     },
     {
+      "icon_id": "7434423",
+      "name": "减号",
+      "font_class": "jianhao",
+      "unicode": "e61d",
+      "unicode_decimal": 58909
+    },
+    {
+      "icon_id": "7720065",
+      "name": "箭头",
+      "font_class": "jiantou1",
+      "unicode": "e611",
+      "unicode_decimal": 58897
+    },
+    {
+      "icon_id": "8288835",
+      "name": "耳机",
+      "font_class": "erji",
+      "unicode": "e848",
+      "unicode_decimal": 59464
+    },
+    {
       "icon_id": "9460422",
       "name": "喜爱",
       "font_class": "xiai",
-      "unicode": "e61b",
-      "unicode_decimal": 58907
+      "unicode": "e61e",
+      "unicode_decimal": 58910
     },
     {
       "icon_id": "10026241",
@@ -88,6 +242,13 @@
       "font_class": "fenleishouye",
       "unicode": "e60e",
       "unicode_decimal": 58894
+    },
+    {
+      "icon_id": "10232773",
+      "name": "时间",
+      "font_class": "shijian",
+      "unicode": "e78d",
+      "unicode_decimal": 59277
     }
   ]
 }

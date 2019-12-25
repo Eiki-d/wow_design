@@ -3,9 +3,9 @@
     <navbar></navbar>
     <pageheader></pageheader>
     <swiper :key="looplist.length" ref="myswiper">
-      <div class="swiper-slide" v-for="data in looplist" :key="data.id">
+      <router-link tag="li" to="/detail" class="swiper-slide" v-for="data in looplist" :key="data.id">
         <img :src="data.bannerImgSrc"/>
-      </div>
+      </router-link>
     </swiper>
     <router-view></router-view>
   </div>
@@ -29,7 +29,7 @@ export default {
     axios({
       url: "/v2/page?pageId=1&tabId=1&currentPage=1&pageSize=8&_=1576916525082"
     }).then(res=>{
-      console.log(res.data.data.modules[0].moduleContent.banners)
+      // console.log(res.data.data.modules[0].moduleContent.banners)
       this.looplist = res.data.data.modules[0].moduleContent.banners
       // Indicator.close();
     })

@@ -8,12 +8,24 @@ import quality from '@/views/page/quality'
 
 import cart from '@/views/cart'
 import center from '@/views/center'
+import orders from '@/views/orders'
+import receiving from '@/views/receiving'
+import unpaid from '@/views/unpaid'
+
 import classify from '@/views/classify'
-import message from '@/views/message'
+// import message from '@/views/message'
 
 import login from '@/views/login'
+import password from '@/views/login/password'
+import note from '@/views/login/note'
+
+import register from '@/views/register'
 import detail from '@/views/detail'
 
+import address_message from '@/views/address_message'
+import address from '@/views/address'
+import about from '@/views/about'
+import information from '@/views/information'
 
 Vue.use(VueRouter)
 
@@ -48,23 +60,69 @@ const routes = [
   },
   {
     path: '/center',
-    component: center
+    component: center,
   },
   {
     path: '/classify',
     component: classify
   },
-  {
-    path: '/message',
-    component: message
-  },
+  // {
+  //   path: '/message',
+  //   component: message
+  // },
   {
     path: '/detail',
     component: detail
   },
   {
+    path: '/orders',
+    component: orders
+  },
+  {
+    path: '/receiving',
+    component: receiving
+  },
+  {
+    path: '/unpaid',
+    component: unpaid
+  },
+  {
     path: '/login',
-    component: login
+    component: login,
+    children: [
+      {
+        path: 'password',
+        component: password
+      },
+      {
+        path: 'note',
+        component: note
+      },
+      {
+        path: '/login',
+        redirect: 'password'
+      }
+    ]
+  },
+  {
+    path: '/address_message',
+    component: address_message
+  },
+  {
+    path: '/address',
+    component: address
+  },
+  {
+    path: '/information',
+    component: information
+  },
+  {
+    path: '/about',
+    component: about
+  },
+  {
+    path: '/register',
+    component: register
   },
   {
     path: '/*',
