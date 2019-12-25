@@ -15,8 +15,8 @@ module.exports = {
         target: 'https://m.wowdsgn.com/',
         changeOrigin: true
       },
-      '/foo': {
-        target: '<other_url>'
+      '/pages': {
+        target: 'https://m.wowdsgn.com'
       }
     }
   }

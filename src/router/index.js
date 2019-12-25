@@ -9,6 +9,11 @@ import quality from '@/views/page/quality'
 import cart from '@/views/cart'
 import center from '@/views/center'
 import classify from '@/views/classify'
+import inner from '@/views/inner'
+import date_new from '@/views/inner/Date_new'
+import sale from '@/views/inner/Sale'
+import price from '@/views/inner/Price'
+
 import message from '@/views/message'
 
 import login from '@/views/login'
@@ -51,7 +56,32 @@ const routes = [
   },
   {
     path: '/classify',
-    component: classify
+    component: classify,
+  },
+  {
+    path: '/inner',
+    component: inner,
+    children: [
+      {
+        path: 'date_new',
+        name: "date_new",
+        component: date_new
+      },
+      {
+        path: 'sale',
+        component: sale
+      },
+      {
+        path: 'price',
+        component: price
+      },
+      {
+        path: '/inner',
+        
+        redirect: 'date_new'
+      }
+
+    ]
   },
   {
     path: '/message',
