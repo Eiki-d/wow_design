@@ -1,6 +1,8 @@
 <template>
   <div>
-      <ul v-infinite-scroll="loadMore" infinite-scroll-disabled="loading" infinite-scroll-distance="10" infinite-scroll-immediate-check="false">
+      <!-- <p>{{this.$route.params.myid}}</p> -->
+      
+      <ul v-infinite-scroll="loadMore" infinite-scroll-disabled="loading" infinite-scroll-distance="100" infinite-scroll-immediate-check="false">
           <li v-for="data in datalist" :key="data.productId" @click="handleClick(data.productId)">
               <img :src="data.productImg">
               <p class="title">{{data.productTitle}}</p>
@@ -16,42 +18,50 @@
 </template>
 
 <script>
-import Axios from "axios";
+import Axios from 'axios'
+import Vue from 'vue'
 export default {
     data () {
         return {
             datalist:[],
             myid: localStorage.getItem('myid'),
-            number:1,
+            current:1,
             loading:false,
             total:0
         }
     },
     methods: {
         loadMore(){
-            this.number++,
-            this.loading=true
-            if(this.number === this.total){
-                return
-            }
-            Axios({
-                url: `/pages/category/${localStorage.getItem("asd")||this.$route.params.myid}?currentPage=${this.number}&sort=onShelfTime&order=desc&_=1577100628198`,
-            })
-        },
+      console.log('到底了！！！')
+      this.current++;
+      this.loading = true;
+      if(this.datalist.length>=this.total){
+          return;
+      }
+
+      Axios({
+        url:  `/pages/category/${localStorage.getItem("asd")||this.$route.params.myid}?currentPage=${this.current}&sort=onShelfTime&order=desc&_=1577100628198`
+      }).then(res => {
+        console.log(res.data.data)
+        this.datalist = [...this.datalist,...res.data.data]
+        this.loading = false;
+        // console.log(this.datalist)
+      })
+    },
+
         handleClick(myid){
             localStorage.setItem("asd",this.$route.params.myid)
         }
     },
   mounted() {
     //   localStorage.setItem("asd",this.$route.params.myid)
-    console.log(this.$route.params.myid, 11111111111);
-    // localStorage.setItem(this.$route.params.myid)
-    // https://m.wowdsgn.com/pages/category/21?currentPage=1&sort=onShelfTime&order=desc&_=1577166291935
+    console.log(this.$route.params.myid, 11111111111);5
     Axios({
       url: `/pages/category/${localStorage.getItem("asd")||this.$route.params.myid}?currentPage=1&sort=onShelfTime&order=desc&_=1577100628198`
     }).then(res => {
       console.log(res.data);
       this.datalist = res.data.data
+      this.total = res.data.data.total
     });
   }
 };
@@ -59,39 +69,33 @@ export default {
 
 <style lang="scss" scoped>
 div{
-    
-
+    background: #fff;
 ul{
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    // border: 1px solid #f0f0f0;
-    margin-bottom:100px; 
+    padding-bottom:2rem; 
+    background: #fff;
     li {
-        // flex: 1;
         flex-wrap: wrap;
         box-sizing: border-box;
-        // text-align: center;
         align-content:center;
         overflow: hidden;
-        height: 280px;
+        height: 5.6rem;
         width: 50%;
-        border-bottom: 1px solid #f0f0f0;
-        border-right: 1px solid #f0f0f0;
-        // border-top: 1px solid #f0f0f0;
-        // padding: 5px;
+        border-bottom: .02rem solid #f0f0f0;
+        border-right: .02rem solid #f0f0f0;
         img {
-            // float: left;
             width:100%;
-            // height: 280px;
         }
+    }
+    p{
+        margin: 0 !important;
     }
     .title{
         width: 90%;
-        // padding-left: 15px;
-        // padding-right: 10px;
-        // padding-top: 23px;
-        padding: 23px 10px 2px 15px;
+
+        padding: .25rem .05rem .05rem .3rem;
         color: #808080;
         font-size: 13px;
         white-space: nowrap;
@@ -99,31 +103,31 @@ ul{
         text-overflow: ellipsis;
     }
     .pri{
-        padding-left: 15px;
-        // margin-top: 20px;
-        font-size: 13px;
+        padding-left: .3rem;
+        font-size: .26rem;
         color: #000;
     }
     .del{
         color: #aaa;
-        padding-left: 5px;        
-        font-size: 11px;
+        padding-left: .1rem;        
+        font-size: .2rem;
         text-decoration: line-through;
     }
     .slogan{
-        padding-left: 15px;
-        font-size: 11px;
+        padding-left: .3rem;
+        font-size: .2rem;
         color: #808080;
-        padding-top: 3px;
+        padding-top: .05rem;
     }
     .more{
-    font-size: 14px;
-    height: 50px;
+    font-size: .26rem;
+    height: 1rem;
     width: 100%;
-    line-height: 50px;
+    line-height: 1rem;
     text-align: center;
     padding: 0;
     border-bottom: 1px solid #f0f0f0;
+
     }
 }
 

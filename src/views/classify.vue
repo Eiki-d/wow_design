@@ -151,20 +151,21 @@ export default {
 
 <style lang="scss" scoped>
 div{
-  padding: 0 8px 0 8px;
+  padding: 0 .16rem 0 .16rem;
+  background: #fff;
   img{
   width: 100%;
-  padding-top: 8px;
+  padding-top: .16rem;
   }
   ul{
     width: 100%;
     div{
-      height: 50px;
+      height: 1rem;
       
-      border-bottom: 1px solid #f0f0f0;
-      line-height: 50px;
-      font-size: 15px;
-      padding-left: 15px;
+      border-bottom: .02rem solid #f0f0f0;
+      line-height: 1rem;
+      font-size: .3rem;
+      padding-left: .3rem;
       color: #202020;
       i{
         float: right;
@@ -174,7 +175,7 @@ div{
     }
   }
   .two{
-    margin-bottom:100px; 
+    padding-bottom:2rem; 
   }
 }
 
