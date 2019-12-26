@@ -24,8 +24,8 @@
                 <div>商品</div>
                 <div>单价</div>
                 <div>数量</div>
-                <div>小计</div>
-                <div>操作</div>
+                <!-- <div>小计</div>
+                <div>操作</div> -->
             </div>
             <ul class="cart_list"></ul>
             <div class="cart_computed">
