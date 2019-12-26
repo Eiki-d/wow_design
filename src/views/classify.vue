@@ -1,3 +1,182 @@
 <template>
-  <div>classify</div>
+  <div>
+    <navbar></navbar>
+    <!-- <div>classify</div> -->
+    <div>
+      <!-- 家具 -->
+    <img src="https://m.wowdsgn.com/static/img/furniture.png">
+    <ul>
+      <div v-for="(data,index) in classlist" tag='li' :key="index"  @click="handleClick(data.myid)">
+        {{data.title}}<i :class="'iconfont '+data.icon"></i>
+        <!-- <img src="./public.jiantou.png"> -->
+      </div>
+    </ul>
+    <!-- 家居 -->
+    <img src="https://m.wowdsgn.com/static/img/household.png">
+    <ul class="two">
+      <div v-for="(data,index) in classlist1" tag='li' :key="index"  @click="handleClick(data.myid)">
+        {{data.title}}<i :class="'iconfont '+data.icon"></i>
+        <!-- <img src="./public.jiantou.png"> -->
+      </div>
+    </ul>
+    </div>
+  </div>
+  
 </template>
+
+<script>
+import Axios from 'axios'
+import navbar from '@/components/navbar'
+// import inner from '@/classify/inner'
+export default {
+  mounted () {
+   
+   
+  },
+  data () {
+    return {
+      classlist : [
+        {
+          path: '/inner',
+          title: '沙发',
+          icon: 'icon-arrow',     
+          myid:20
+        },
+        {
+          path: '/inner',
+          title: '椅凳',
+          icon: 'icon-arrow',
+          myid:21
+        },
+        {
+          path: '/inner',
+          title: '床',
+          icon: 'icon-arrow',
+          myid:2310
+        },
+        {
+          path: '/inner',
+          title: '柜架',
+          icon: 'icon-arrow',
+          myid:24
+        },
+        {
+          path: '/inner',
+          title: '餐桌',
+          icon: 'icon-arrow',
+          myid:2210
+        },
+        {
+          path: '/inner',
+          title: '茶几和边桌',
+          icon: 'icon-arrow',
+          myid:2211
+        },
+        {
+          path: '/inner',
+          title: '书桌',
+          icon: 'icon-arrow',
+          myid:2212
+        }
+      ],
+      classlist1:[
+        {
+          path: '/inner',
+          title: '灯具',
+          icon: 'icon-arrow',
+          myid:25
+        },
+        {
+          path: '/inner',
+          title: '用餐',
+          icon: 'icon-arrow',
+          myid:26
+        },
+        {
+          path: '/inner',
+          title: '时尚生活',
+          icon: 'icon-arrow',
+          myid:32
+        },
+        {
+          path: '/inner',
+          title: '收纳',
+          icon: 'icon-arrow',
+          myid:33
+        },
+        {
+          path: '/inner',
+          title: '烹饪',
+          icon: 'icon-arrow',
+          myid:27
+        },
+        {
+          path: '/inner',
+          title: '纺织品',
+          icon: 'icon-arrow',
+          myid:28
+        },
+        {
+          path: '/inner',
+          title: '家饰',
+          icon: 'icon-arrow',
+          myid:29
+        },
+        {
+          path: '/inner',
+          title: '卫浴',
+          icon: 'icon-arrow',
+          myid:31
+        }
+      ]
+    }
+  },
+  methods:{
+    handleClick(myid){
+        // console.log(myid)
+      this.$router.push({name:"date_new",params: {myid : myid}}),
+      localStorage.setItem("asd",this.$route.params.myid)
+      localStorage.getItem("asd")||this.$route.params.myid
+      // localStorage.setItem(JSON.stringify(this.$route.params.myid))
+      // localStorage.setItem('date_new',this.data.params.myid)
+      // localStorage.setItem('myid', 'date_new' + (this.$route.params.myid)
+    }
+  },
+  components: {
+    navbar,
+    // inner
+  },
+}
+</script>
+
+<style lang="scss" scoped>
+div{
+  padding: 0 8px 0 8px;
+  img{
+  width: 100%;
+  padding-top: 8px;
+  }
+  ul{
+    width: 100%;
+    div{
+      height: 50px;
+      
+      border-bottom: 1px solid #f0f0f0;
+      line-height: 50px;
+      font-size: 15px;
+      padding-left: 15px;
+      color: #202020;
+      i{
+        float: right;
+        // font-size: 15px;
+        color: #ccc;
+      }
+    }
+  }
+  .two{
+    margin-bottom:100px; 
+  }
+}
+
+
+</style>
