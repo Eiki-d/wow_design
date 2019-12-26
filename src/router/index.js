@@ -5,6 +5,7 @@ import page from '@/views/page'
 import index from '@/views/page/index'
 import living from '@/views/page/living'
 import quality from '@/views/page/quality'
+import productGroup from '@/views/page/productGroup'
 
 import cart from '@/views/cart'
 import center from '@/views/center'
@@ -13,6 +14,12 @@ import receiving from '@/views/receiving'
 import unpaid from '@/views/unpaid'
 
 import classify from '@/views/classify'
+import inner from '@/views/inner'
+import date_new from '@/views/inner/Date_new'
+import sale from '@/views/inner/Sale'
+import price from '@/views/inner/Price'
+
+// import message from '@/views/message'
 // import message from '@/views/message'
 
 import login from '@/views/login'
@@ -49,6 +56,10 @@ const routes = [
         component: quality
       },
       {
+        path: 'productGroup',
+        component: productGroup
+      },
+      {
         path: '/page',
         redirect: 'index'
       }
@@ -64,7 +75,32 @@ const routes = [
   },
   {
     path: '/classify',
-    component: classify
+    component: classify,
+  },
+  {
+    path: '/inner',
+    component: inner,
+    children: [
+      {
+        path: 'date_new',
+        name: "date_new",
+        component: date_new
+      },
+      {
+        path: 'sale',
+        component: sale
+      },
+      {
+        path: 'price',
+        component: price
+      },
+      {
+        path: '/inner',
+        
+        redirect: 'date_new'
+      }
+
+    ]
   },
   // {
   //   path: '/message',
