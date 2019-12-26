@@ -5,6 +5,7 @@ import page from '@/views/page'
 import index from '@/views/page/index'
 import living from '@/views/page/living'
 import quality from '@/views/page/quality'
+import productGroup from '@/views/page/productGroup'
 
 import cart from '@/views/cart'
 import center from '@/views/center'
@@ -47,6 +48,10 @@ const routes = [
       {
         path: 'quality',
         component: quality
+      },
+      {
+        path: 'productGroup',
+        component: productGroup
       },
       {
         path: '/page',
