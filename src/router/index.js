@@ -72,7 +72,7 @@ const routes = [
     component: classify,
   },
   {
-    path: '/productGroup', // 动态路由
+    path: '/productGroup/:id', // 动态路由
     component: productGroup,
     props: true,
     name: 'productGroup' // 命名路由
