@@ -17,6 +17,9 @@ module.exports = {
       },
       '/pages': {
         target: 'https://m.wowdsgn.com'
+      },
+      '/itemdetail':{
+        target: 'https://m.wowdsgn.com'
       }
     }
   }

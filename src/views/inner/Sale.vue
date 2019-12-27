@@ -7,7 +7,7 @@
               <img :src="data.productImg">
               <p class="title">{{data.productTitle}}</p>
               <span class="pri">￥{{data.sellPrice}}</span>
-              <span class="del">￥{{data.originalPrice}}</span>
+              <span class="del" v-if="data.originalPrice==data.sellPrice?false:true">￥{{data.originalPrice}}</span>
               <p class="slogan">{{data.prizeOrSlogan}}</p>
           </li>
            <p class="more">没有更多了</p>
@@ -94,10 +94,9 @@ ul{
     }
     .title{
         width: 90%;
-
         padding: .25rem .05rem .05rem .3rem;
         color: #808080;
-        font-size: 13px;
+        font-size: .25rem;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -114,10 +113,14 @@ ul{
         text-decoration: line-through;
     }
     .slogan{
+         width: 90%;
         padding-left: .3rem;
-        font-size: .2rem;
+        font-size: .22rem;
         color: #808080;
         padding-top: .05rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
     .more{
     font-size: .26rem;
