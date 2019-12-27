@@ -55,7 +55,7 @@ export default {
     },
   mounted() {
     //   localStorage.setItem("asd",this.$route.params.myid)
-    console.log(this.$route.params.myid, 11111111111);5
+    console.log(this.$route.params.myid, 11111111111);
     Axios({
       url: `/pages/category/${localStorage.getItem("asd")||this.$route.params.myid}?currentPage=1&sort=onShelfTime&order=desc&_=1577100628198`
     }).then(res => {

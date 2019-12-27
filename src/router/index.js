@@ -3,9 +3,10 @@ import VueRouter from 'vue-router'
 import page from '@/views/page'
 // import Home from '../views/Home.vue'
 import index from '@/views/page/index'
+import productGroup from '@/views/index/productGroup'
+import brand from '@/views/index/brand'
 import living from '@/views/page/living'
 import quality from '@/views/page/quality'
-import productGroup from '@/views/page/productGroup'
 
 import cart from '@/views/cart'
 import center from '@/views/center'
@@ -18,9 +19,6 @@ import inner from '@/views/inner'
 import date_new from '@/views/inner/Date_new'
 import sale from '@/views/inner/Sale'
 import price from '@/views/inner/Price'
-
-// import message from '@/views/message'
-// import message from '@/views/message'
 
 import login from '@/views/login'
 import password from '@/views/login/password'
@@ -56,10 +54,6 @@ const routes = [
         component: quality
       },
       {
-        path: 'productGroup',
-        component: productGroup
-      },
-      {
         path: '/page',
         redirect: 'index'
       }
@@ -76,6 +70,18 @@ const routes = [
   {
     path: '/classify',
     component: classify,
+  },
+  {
+    path: '/productGroup', // 动态路由
+    component: productGroup,
+    props: true,
+    name: 'productGroup' // 命名路由
+  },
+  {
+    path: '/brand', // 动态路由
+    component: brand,
+    props: true,
+    name: 'brand' // 命名路由
   },
   {
     path: '/inner',
@@ -108,6 +114,7 @@ const routes = [
   // },
   {
     path: '/detail',
+    name: 'detail',
     component: detail
   },
   {
