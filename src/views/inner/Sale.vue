@@ -3,7 +3,7 @@
       <!-- <p>{{this.$route.params.myid}}</p> -->
       
       <ul v-infinite-scroll="loadMore" infinite-scroll-disabled="loading" infinite-scroll-distance="100" infinite-scroll-immediate-check="false">
-          <li v-for="data in datalist" :key="data.productId" @click="handleClick(data.productId)">
+          <li v-for="data in datalist" :key="data.productId" @click="handleClick(data.productId)" to="/detail/:id">
               <img :src="data.productImg">
               <p class="title">{{data.productTitle}}</p>
               <span class="pri">￥{{data.sellPrice}}</span>
@@ -20,6 +20,7 @@
 <script>
 import Axios from 'axios'
 import Vue from 'vue'
+import { Indicator } from 'mint-ui';
 export default {
     data () {
         return {
@@ -27,12 +28,13 @@ export default {
             myid: localStorage.getItem('myid'),
             current:1,
             loading:false,
-            total:0
+            total:0,
+            content:''
         }
     },
     methods: {
         loadMore(){
-      console.log('到底了！！！')
+    //   console.log('到底了！！！')
       this.current++;
       this.loading = true;
       if(this.datalist.length>=this.total){
@@ -45,6 +47,7 @@ export default {
         console.log(res.data.data)
         this.datalist = [...this.datalist,...res.data.data]
         this.loading = false;
+        Indicator.close();
         // console.log(this.datalist)
       })
     },
@@ -55,13 +58,14 @@ export default {
     },
   mounted() {
     //   localStorage.setItem("asd",this.$route.params.myid)
-    console.log(this.$route.params.myid, 11111111111);5
+    console.log(this.$route.params.myid, 11111111111);
     Axios({
       url: `/pages/category/${localStorage.getItem("asd")||this.$route.params.myid}?currentPage=1&sort=sales&order=desc&_=1577330411878`
     }).then(res => {
       console.log(res.data);
       this.datalist = res.data.data
       this.total = res.data.data.total
+      Indicator.close();
     });
   }
 };
@@ -76,6 +80,7 @@ ul{
     width: 100%;
     padding-bottom:2rem; 
     background: #fff;
+    margin: 0;
     li {
         flex-wrap: wrap;
         box-sizing: border-box;

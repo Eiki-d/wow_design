@@ -94,10 +94,12 @@ const routes = [
       },
       {
         path: 'sale',
+        name: "sale",
         component: sale
       },
       {
         path: 'price',
+        name: "price",
         component: price
       },
       {

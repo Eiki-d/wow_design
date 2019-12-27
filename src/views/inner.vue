@@ -43,10 +43,18 @@ export default {
     mounted () {
         console.log(this.$route.params.title,222)
         this.title = this.$route.params.title ||localStorage.getItem('asd_title')
+
+        this.title1 = this.$route.params.title1 ||localStorage.getItem('asd_title1')
+
+        this.title2 = this.$route.params.title2 ||localStorage.getItem('asd_title2')
     },
     methods: {
         handleClick(title){
             localStorage.setItem("asd_title",this.$route.params.title)
+
+            localStorage.setItem("asd_title1",this.$route.params.title1)
+
+            localStorage.setItem("asd_title2",this.$route.params.title2)
         }
     }
 }
