@@ -22,7 +22,7 @@ export default {
     left: .26rem;
     z-index: 9;
     font-size: .34rem;
-    color: #000; 
+    color: #111; 
     font-weight: 600;
   }
   .right-top-wrap {
@@ -31,7 +31,7 @@ export default {
     right: .26rem;
     z-index: 9;
     font-size: .34rem;
-    color: #000; 
+    color: #111; 
     font-weight: 600;
   }
 </style>

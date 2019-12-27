@@ -15,7 +15,7 @@ export default {
       // console.log(this.swipername)
       var defaultProps = {
         loop:true,
-        autoplay:true,
+        // autoplay:true,
         pagination: {
           el: ".swiper-pagination"
         }
