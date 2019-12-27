@@ -137,7 +137,8 @@ export default {
     handleClick(myid,title){
         // console.log(myid)
       this.$router.push({name:"date_new",params: {myid : myid, title:title}}),
-      
+     
+
       // myid本地存储
       localStorage.setItem("asd",this.$route.params.myid)
       localStorage.getItem("asd")||this.$route.params.myid
@@ -145,7 +146,6 @@ export default {
       // title本地存储
       localStorage.setItem("asd_title",this.$route.params.title)
       localStorage.getItem("asd_title") || this.$route.params.title
-      // localStorage.setItem(JSON.stringify(this.$route.params.myid))
     }
   },
   components: {
