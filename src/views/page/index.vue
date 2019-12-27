@@ -14,7 +14,7 @@
         </div>
         
         <div class="page-module-banner-group-fixed-landscape">
-          <div v-for="i in item.moduleContent.banners" :key="i.id" @click="i.bannerLinkType==6?handleClick(i.id):(i.bannerLinkType==10?handleClick2(i.id):handleClick3(i.id))">
+          <div v-for="i in item.moduleContent.banners" :key="i.bannerLinkTargetId" @click="i.bannerLinkType==6?handleClick(i.bannerLinkTargetId):(i.bannerLinkType==10?handleClick2(i.bannerLinkTargetId):handleClick3(i.bannerLinkTargetId))">
             <img :src="i.bannerImgSrc" alt="">
           </div>
         </div>
@@ -58,9 +58,9 @@ export default {
     })
   },
   methods: {
-    handleClick2(id){
+    handleClick2(bannerLinkTargetId){
       // console.log("asd")
-      this.$router.push({name:"productGroup",params: {id : id}}),
+      this.$router.push({name:"productGroup",params: {id : bannerLinkTargetId}}),
       localStorage.setItem("banner_id",this.$route.params.id)
       localStorage.getItem("banner_id")||this.$route.params.id
 
@@ -68,15 +68,15 @@ export default {
       // this.$router.back() //返回上一页
     },
 
-    handleClick(id){
+    handleClick(bannerLinkTargetId){
       // console.log("132")
-      this.$router.push({name:"detail",params: {id : id}}),
+      this.$router.push({name:"detail",params: {id : bannerLinkTargetId}}),
       localStorage.setItem("banner_id",this.$route.params.id)
       localStorage.getItem("banner_id")||this.$route.params.id
     },
-    handleClick3(id){
+    handleClick3(bannerLinkTargetId){
       // console.log("132")
-      this.$router.push({name:"brand",params: {id : id}}),
+      this.$router.push({name:"brand",params: {id : bannerLinkTargetId}}),
       localStorage.setItem("banner_id",this.$route.params.id)
       localStorage.getItem("banner_id")||this.$route.params.id
     },

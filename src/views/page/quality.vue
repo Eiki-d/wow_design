@@ -12,7 +12,7 @@
         <h2>{{data.moduleContent.name}}</h2>
         <h3>{{data.moduleDescription}}</h3>
       </div> -->
-      <swiper class="sofaSwiper" :key="sofalist.length" ref="myswiper" :options="{
+      <swiper class="sofaSwiper" :key="sofalist.length" :options="{
         loop:false,
         pagination:{},
         slidesPerView: 3,

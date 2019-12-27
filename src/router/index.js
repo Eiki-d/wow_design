@@ -78,7 +78,7 @@ const routes = [
     name: 'productGroup' // 命名路由
   },
   {
-    path: '/brand', // 动态路由
+    path: '/brand/:id', // 动态路由
     component: brand,
     props: true,
     name: 'brand' // 命名路由
@@ -113,7 +113,7 @@ const routes = [
   //   component: message
   // },
   {
-    path: '/detail',
+    path: '/detail/:id',
     name: 'detail',
     component: detail
   },
