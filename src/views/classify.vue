@@ -6,7 +6,7 @@
       <!-- 家具 -->
     <img src="https://m.wowdsgn.com/static/img/furniture.png">
     <ul>
-      <div v-for="(data,index) in classlist" tag='li' :key="index"  @click="handleClick(data.myid)">
+      <div v-for="(data,index) in classlist" tag='li' :key="index"  @click="handleClick(data.myid,data.title)">
         {{data.title}}<i :class="'iconfont '+data.icon"></i>
         <!-- <img src="./public.jiantou.png"> -->
       </div>
@@ -14,12 +14,13 @@
     <!-- 家居 -->
     <img src="https://m.wowdsgn.com/static/img/household.png">
     <ul class="two">
-      <div v-for="(data,index) in classlist1" tag='li' :key="index"  @click="handleClick(data.myid)">
+      <div v-for="(data,index) in classlist1" tag='li' :key="index"  @click="handleClick(data.myid,data.title)">
         {{data.title}}<i :class="'iconfont '+data.icon"></i>
         <!-- <img src="./public.jiantou.png"> -->
       </div>
     </ul>
     </div>
+    <tabbar></tabbar>
   </div>
   
 </template>
@@ -27,6 +28,7 @@
 <script>
 import Axios from 'axios'
 import navbar from '@/components/navbar'
+import tabbar from '@/components/tabbar'
 // import inner from '@/classify/inner'
 export default {
   mounted () {
@@ -132,18 +134,23 @@ export default {
     }
   },
   methods:{
-    handleClick(myid){
+    handleClick(myid,title){
         // console.log(myid)
-      this.$router.push({name:"date_new",params: {myid : myid}}),
+      this.$router.push({name:"date_new",params: {myid : myid, title:title}}),
+      
+      // myid本地存储
       localStorage.setItem("asd",this.$route.params.myid)
       localStorage.getItem("asd")||this.$route.params.myid
+
+      // title本地存储
+      localStorage.setItem("asd_title",this.$route.params.title)
+      localStorage.getItem("asd_title") || this.$route.params.title
       // localStorage.setItem(JSON.stringify(this.$route.params.myid))
-      // localStorage.setItem('date_new',this.data.params.myid)
-      // localStorage.setItem('myid', 'date_new' + (this.$route.params.myid)
     }
   },
   components: {
     navbar,
+    tabbar
     // inner
   },
 }
