@@ -7,6 +7,7 @@ import store from './store'
 //----引入mintUI
 import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
+import VDistpicker from 'v-distpicker';Vue.component('v-distpicker', VDistpicker);
 Vue.use(MintUI)
 
 

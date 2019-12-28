@@ -18,12 +18,16 @@ module.exports = {
       '/pages': {
         target: 'https://m.wowdsgn.com'
       },
+      '/api': {
+        target: 'http://www.huahaicang.cn'
+      },
       '/itemdetail':{
         target: 'https://m.wowdsgn.com'
       },
       '/brand': {
         target: 'https://m.wowdsgn.com',
+          target: 'https://m.wowdsgn.com'
       }
-    }
   }
+}
 }

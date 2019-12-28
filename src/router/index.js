@@ -28,6 +28,8 @@ import register from '@/views/register'
 import detail from '@/views/detail'
 
 import address_message from '@/views/address_message'
+import detailed_address from '@/views/detailed_address'
+
 import address from '@/views/address'
 import about from '@/views/about'
 import information from '@/views/information'
@@ -151,7 +153,11 @@ const routes = [
   },
   {
     path: '/address_message',
-    component: address_message
+    component: address_message,
+  },
+  {
+    path: '/detailed_address',
+    component: detailed_address
   },
   {
     path: '/address',
