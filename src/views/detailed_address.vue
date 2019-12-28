@@ -20,6 +20,8 @@
           <div class="city" @click="toAddress">{{city}}</div>
           <i class="arrow-r"> </i>
         </div>
+        <v-distpicker type="mobile" @selected='selected' v-show="addInp"></v-distpicker>
+      <div class="mask" v-show="mask"></div>
       </li>
       </div>
         <textarea name="" id="" cols="36" rows="5">详细地址：</textarea>

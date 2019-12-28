@@ -28,11 +28,15 @@
         <span>地址管理</span>
         <i class="iconfont icon-jiantou"></i>
       </router-link>
-      <router-link to="/address" tag="li" class="address">
-        <i class="iconfont icon-shouhuodizhi"></i>
-        <span>收货地区</span>
+      <!-- <router-link tag="li"> -->
+        <li>
+          <i class="iconfont icon-shouhuodizhi"></i>
+          <span class="city" @click="toAddress">收货地区<p>{{city}}</p></span>
         <i class="iconfont icon-jiantou"></i>
-      </router-link>
+        </li>
+        <v-distpicker type="mobile" @selected='selected' v-show="addInp"></v-distpicker>
+    <div class="mask" v-show="mask"></div>
+      <!-- </router-link> -->
       <router-link to="/about" tag="li" class="about">
         <i class="iconfont icon-biaoqian"></i>
         <span>关于我们</span>
@@ -47,15 +51,33 @@
   </div>
 </template>
 <script>
+import VDistpicker from 'v-distpicker'
 import skipbar from '@/components/skipbar'
 export default {
   components: {
-    skipbar
+    skipbar,
+    VDistpicker
+  },
+  data(){
+      return {
+        city:'请选择',
+        addInp :false,
+        mask:false
+      }
   },
   methods: {
     handleClick(){
       
-    }
+    },
+    toAddress(){
+      this.mask = true;
+      this.addInp = true;
+    },
+    selected(data){
+      this.mask =false;
+      this.addInp = false;
+      this.city = data.province.value + ' ' + data.city.value +' ' + data.area.value
+    },
   },
   mounted(){
   },
@@ -146,5 +168,22 @@ export default {
         flex: 1;
       }
     }
+    i {
+        font-size: .38rem;
+      }
+    .city{
+      height: 1.3rem;
+      display: flex;
+      justify-content: space-between;
+      border-bottom: .02rem solid #ebebeb;
+      align-items: center;
+      padding-left: .55rem;
+      flex: 1;
+      p{
+        padding-right: .1rem;
+        align-items: center;
+        line-height: 1.3rem;
+      }
+      }
   }
 </style>

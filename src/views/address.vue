@@ -4,42 +4,54 @@
     <!-- address -->
     <skipbar></skipbar>
     <div class="title-warpper">
-      <p class="title">收获地区</p>
+      <p class="title">收货地区</p>
     </div>
-    <div class="tabs-warp">
-        <span class="tab">省</span>
-        <span class="tab">市</span>
-        <span class="tab">区</span>
-        <span class="tab">街道</span>
-      </div>
+    <!-- <div class="tabs-warp">
+      <span class="tab">省</span>
+      <span class="tab">市</span>
+      <span class="tab">区</span>
+      <span class="tab">街道</span>
+    </div> -->
       <ul>
-        <li v-for="data in childlist" :key="data"></li>
+        <li>
+          <div class="right r">
+          <div class="city" @click="toAddress">{{city}}</div>
+          <i class="arrow-r"> </i>
+        </div>
+        </li>
       </ul>
-
+      <v-distpicker type="mobile" @selected='selected' v-show="addInp"></v-distpicker>
+      <div class="mask" v-show="mask"></div>
     
   </div>
 </template>
 <script>
+import VDistpicker from 'v-distpicker'
 import skipbar from '@/components/skipbar'
 import axios from 'axios'
 export default {
   components:{
+    VDistpicker,
     skipbar
   },
   data(){
-    return {
-      childlist:[]
-    }
+      return {
+        city:'请选择',
+        addInp :false,
+        mask:false
+      }
   },
-//   mounted() {
-//     axios(
-//       'api/neptune/myopen/address/address',`provinc=${localStorage.getItem('proviceId')}&city=${this.cityId}&page=${this.number}&pageSize=10`,
-      
-//  ).then(res=>{
-//       console.log(res.data)
-//       this.childlist=res.data
-//     })
-//   },
+  methods: {
+    toAddress(){
+    this.mask = true;
+    this.addInp = true;
+    },
+    selected(data){
+      this.mask =false;
+      this.addInp = false;
+      this.city = data.province.value + ' ' + data.city.value +' ' + data.area.value
+    },
+  }
 }
 </script>
 <style lang="scss" scoped>
@@ -51,14 +63,14 @@ export default {
       line-height: .73rem;
     }
   }
-  .tabs-warp{
-      display: flex;
-      margin-top: .5rem;
-      .tab{
-        flex: 1;
-        // padding-bottom: .07rem;
-        text-align: center;
-        line-height: .27rem;
-      }
-    }
+  // .tabs-warp{
+  //     display: flex;
+  //     margin-top: .5rem;
+  //     .tab{
+  //       flex: 1;
+  //       // padding-bottom: .07rem;
+  //       text-align: center;
+  //       line-height: .27rem;
+  //     }
+  //   }
 </style>

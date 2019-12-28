@@ -45,6 +45,7 @@ export default {
 </script>
 <style lang="scss" scoped>
   .bottom-tab {
+    // overflow: hidden;
     width:100%;
     height: 0.88rem;
     position: fixed;

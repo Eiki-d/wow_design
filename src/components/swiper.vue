@@ -4,7 +4,7 @@
       <slot></slot>
     </div>
     <!-- 如果需要分页器 -->
-    <div class="swiper-pagination"></div>
+    <!-- <div class="swiper-pagination"></div> -->
   </div>
 </template>
 <script>
@@ -15,7 +15,7 @@ export default {
       // console.log(this.swipername)
       var defaultProps = {
         loop:true,
-        autoplay:true,
+        // autoplay:true,
         pagination: {
           el: ".swiper-pagination"
         }
