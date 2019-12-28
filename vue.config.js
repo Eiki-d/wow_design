@@ -20,6 +20,9 @@ module.exports = {
       },
       '/itemdetail':{
         target: 'https://m.wowdsgn.com'
+      },
+      '/brand': {
+        target: 'https://m.wowdsgn.com',
       }
     }
   }

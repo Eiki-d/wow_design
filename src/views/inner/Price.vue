@@ -3,13 +3,13 @@
       <!-- <p>{{this.$route.params.myid}}</p> -->
       
       <ul v-infinite-scroll="loadMore" infinite-scroll-disabled="loading" infinite-scroll-distance="100" infinite-scroll-immediate-check="false">
-          <li v-for="data in datalist" :key="data.productId" @click="handleClick(data.productId)" to="/detail/:id">
+          <router-link v-for="data in datalist" :key="data.productId" @click="handleClick(data.productId)" to="/detail/:id" tag="li" class="list">
               <img :src="data.productImg">
               <p class="title">{{data.productTitle}}</p>
               <span class="pri">￥{{data.sellPrice}}</span>
               <span class="del" v-if="data.originalPrice==data.sellPrice?false:true">￥{{data.originalPrice}}</span>
               <p class="slogan">{{data.prizeOrSlogan}}</p>
-          </li>
+          </router-link>
            <p class="more">没有更多了</p>
       </ul>
        <!-- <p>{{data.productTitle}}</p> -->
@@ -81,7 +81,7 @@ ul{
     padding-bottom:2rem; 
     background: #fff;
     margin: 0;
-    li {
+    .list {
         flex-wrap: wrap;
         box-sizing: border-box;
         align-content:center;
