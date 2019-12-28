@@ -26,7 +26,6 @@ module.exports = {
       },
       '/brand': {
         target: 'https://m.wowdsgn.com',
-          target: 'https://m.wowdsgn.com'
       }
   }
 }

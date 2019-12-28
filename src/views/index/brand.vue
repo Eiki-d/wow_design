@@ -9,7 +9,7 @@ Normann Copenhagen展现的独特产品设计包括配饰、吊灯、橱柜、�
   </div>
 
   <div class="lie">
-    <ul>
+    <ul v-infinite-scroll="loadMore" infinite-scroll-disabled="loading" infinite-scroll-distance="100" infinite-scroll-immediate-check="false">
           <router-link v-for="data in datalist" :key="data.brand_id" @click="handleClick(data.brand_id)" tag="li" to="/detail/:id" class="list">
               <img :src="data.productImg">
               <p class="title">{{data.productTitle}}</p>
@@ -17,7 +17,7 @@ Normann Copenhagen展现的独特产品设计包括配饰、吊灯、橱柜、�
               <span class="del" v-if="data.originalPrice==data.sellPrice?false:true">￥{{data.originalPrice}}</span>
               <p class="slogan">{{data.prizeOrSlogan}}</p>
           </router-link>
-           <p class="more">没有更多了</p>
+           <p class="more">上拉加载更多</p>
       </ul>
   </div>
 
@@ -26,19 +26,29 @@ Normann Copenhagen展现的独特产品设计包括配饰、吊灯、橱柜、�
 <script>
 import Axios from 'axios'
 import Vue from 'vue'
+import { Indicator } from 'mint-ui'
 export default {
   data () {
     return{
       datalist:[],
-      brand_id: localStorage.getItem('id')
+      brand_id: localStorage.getItem('brand_id'),
+      current:1,
+      loading:false,
+      total:0,
+      content:''
     }
   },
   mounted(){
+    Indicator.open({
+      spinnerType: 'fading-circle'
+    })
     Axios({
-      url: '/brand/1070/products?pageSize=10&currentPage=1&_=1577495938714',
+      url: `/brand/${ localStorage.getItem('brand_id') || this.$route.params.id}/products?pageSize=10&currentPage=1&_=1577495938714`,
     }).then(res => {
       console.log(res.data.data)
       this.datalist = res.data.data
+      this.total = res.data.data.total
+      Indicator.close()
     })
   },
 
@@ -46,12 +56,27 @@ export default {
     handleClick(id){
       localStorage.setItem("brand_id",this.$route.params.id)
     }
+  },
+  loadMore(){
+    this.current++;
+    this.loading = true;
+    if(this.datalist.length>=this.total){
+      return;
+    }
+    Axios({
+      url: `/brand/${ localStorage.getItem('brand_id') || this.$route.params.id}/products?pageSize=10&currentPage=${this.current}&_=1577495938714`,
+    }).then(res => {
+      console.log(res.data.data)
+      this.datalist = [...this.datalist, ...res.data.data]
+      Indicator.close();
+      this.loading = false;
+    })
   }
 }
 </script>
 
 <style lang="scss" scoped>
-div{
+.header{
   display: flex;
   padding: .3rem .3rem 0;
   justify-content: center;
@@ -76,6 +101,7 @@ div{
     color: #666;
     text-align: justify;
     line-height: .5rem;
+    margin-bottom: .4rem;
   }
 }
 
