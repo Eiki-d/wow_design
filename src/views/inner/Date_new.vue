@@ -3,7 +3,7 @@
       <!-- <p>{{this.$route.params.myid}}</p> -->
       
       <ul v-infinite-scroll="loadMore" infinite-scroll-disabled="loading" infinite-scroll-distance="100" infinite-scroll-immediate-check="false">
-          <router-link v-for="data in datalist" :key="data.myid" @click="handleClick(data.myid)" tag="li" to="/detail/:id">
+          <router-link v-for="data in datalist" :key="data.myid" @click="handleClick(data.myid)" tag="li" to="/detail/:id" class="list">
               <img :src="data.productImg">
               <p class="title">{{data.productTitle}}</p>
               <span class="pri">￥{{data.sellPrice}}</span>
@@ -87,7 +87,7 @@ ul{
     padding-bottom:2rem; 
     background: #fff;
     margin: 0;
-    li {
+    .list {
         flex-wrap: wrap;
         box-sizing: border-box;
         align-content:center;

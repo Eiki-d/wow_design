@@ -22,6 +22,10 @@ module.exports = {
         target: 'http://www.huahaicang.cn'
       },
       '/itemdetail':{
+        target: 'https://m.wowdsgn.com'
+      },
+      '/brand': {
+        target: 'https://m.wowdsgn.com',
           target: 'https://m.wowdsgn.com'
       }
   }
