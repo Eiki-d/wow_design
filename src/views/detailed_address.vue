@@ -21,8 +21,9 @@
           <i class="arrow-r"> </i>
         </div>
       </li>
-        <textarea name="" id="" cols="33" rows="5">详细地址：</textarea>
       </div>
+        <textarea name="" id="" cols="36" rows="5">详细地址：</textarea>
+        <button class="btn">保存地址</button>
 
       <v-distpicker type="mobile" @selected='selected' v-show="addInp"></v-distpicker>
       <div class="mask" v-show="mask"></div>
@@ -60,45 +61,65 @@ export default {
 <style scoped lang="scss">
   .address_list{
       margin-top: 1rem;
-      margin-left: .8rem;
-      margin-right: .8rem;
+      margin-left: .6rem;
+      margin-right: .6rem;
+    //   border: 1px sloid black;
       input{
         border: none;
         background: none;
         padding-top: .3rem;
         padding-bottom: .3rem;
-        // font-size: .3rem;
       }
       .receiver{
-        //   border-bottom: 1px solid black;
-        border-top: 1px solid black;
+        border: 1px solid rgb(177, 166, 166);
         font-size: .33rem;
+        background: white;
+        padding-left: .3rem;
+        border-radius: .1rem .1rem 0 0;
       }
       .tel{
-          border-bottom: 1px solid black;
-          border-top: 1px solid black;
-          font-size: .33rem;
+        border: 1px solid rgb(177, 166, 166);
+        font-size: .33rem;
+        background: white;
+        padding-left: .3rem;
       }
       .left{
-        //   border-bottom: 1px solid black;
         font-size: .33rem;
         padding-top: .3rem;
         padding-bottom: .3rem;
+        padding-left: .3rem;
         float: left;
-        //   z-index: 111;
+        background: white;
+        border: 1px solid rgb(177, 166, 166);
+        border-right: none;
+        border-radius: 0rem 0rem 0rem .1rem;
       }
       .city{
-        border-bottom: 1px solid black;
+        border: 1px solid rgb(177, 166, 166);
         font-size: .33rem;
         padding-top: .3rem;
         padding-bottom: .3rem;
-        //   margin-left: .3rem
+        padding-left: .3rem;
+        background: white;
+        border-radius: 0rem 0rem 0.1rem .1rem;
       }
-      textarea{
+  }
+  textarea{
         margin-top: .3rem;
         padding-left: .3rem;
         font-size: .33rem;
-        margin-right: .8rem;
+        margin-right: .6rem;
+        margin-left: .6rem;
+        border-radius: .1rem
       }
+  .btn{
+    // background: rgb(252, 2, 2);
+    border: 1px solid rgb(252, 2, 2);
+    background: white;
+    width: 6rem;
+    height: 1rem;
+    font-size: .4rem;
+    margin: 2rem 0.74rem;
+    color: rgb(252, 2, 2);
   }
 </style>
