@@ -1,17 +1,16 @@
 <template>
 <div>
-  <tabbar></tabbar>
+  <!-- <tabbar></tabbar> -->
   <router-view></router-view>
 </div>
   
 </template>
 
 <script>
-import tabbar from '@/components/tabbar'
 
 export default {
   components: {
-    tabbar
+    // tabbar
   },
   // beforeCreated(){
   //   var tabbar = document.querySelector(".bottom-tab")

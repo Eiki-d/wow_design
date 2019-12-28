@@ -3,11 +3,11 @@
       <!-- <p>{{this.$route.params.myid}}</p> -->
       
       <ul v-infinite-scroll="loadMore" infinite-scroll-disabled="loading" infinite-scroll-distance="100" infinite-scroll-immediate-check="false">
-          <li v-for="data in datalist" :key="data.productId" @click="handleClick(data.productId)">
+          <li v-for="data in datalist" :key="data.productId" @click="handleClick(data.productId)" to="/detail/:id">
               <img :src="data.productImg">
               <p class="title">{{data.productTitle}}</p>
               <span class="pri">￥{{data.sellPrice}}</span>
-              <span class="del">￥{{data.originalPrice}}</span>
+              <span class="del" v-if="data.originalPrice==data.sellPrice?false:true">￥{{data.originalPrice}}</span>
               <p class="slogan">{{data.prizeOrSlogan}}</p>
           </li>
            <p class="more">没有更多了</p>
@@ -20,6 +20,7 @@
 <script>
 import Axios from 'axios'
 import Vue from 'vue'
+import { Indicator } from 'mint-ui';
 export default {
     data () {
         return {
@@ -27,7 +28,8 @@ export default {
             myid: localStorage.getItem('myid'),
             current:1,
             loading:false,
-            total:0
+            total:0,
+            content:''
         }
     },
     methods: {
@@ -45,6 +47,7 @@ export default {
         console.log(res.data.data)
         this.datalist = [...this.datalist,...res.data.data]
         this.loading = false;
+        Indicator.close();
         // console.log(this.datalist)
       })
     },
@@ -55,13 +58,14 @@ export default {
     },
   mounted() {
     //   localStorage.setItem("asd",this.$route.params.myid)
-    console.log(this.$route.params.myid, 11111111111);5
+    console.log(this.$route.params.myid, 11111111111);
     Axios({
       url: `/pages/category/${localStorage.getItem("asd")||this.$route.params.myid}?currentPage=1&sort=price&order=asc&_=1577330644427`
     }).then(res => {
       console.log(res.data);
       this.datalist = res.data.data
       this.total = res.data.data.total
+      Indicator.close();
     });
   }
 };
@@ -76,6 +80,7 @@ ul{
     width: 100%;
     padding-bottom:2rem; 
     background: #fff;
+    margin: 0;
     li {
         flex-wrap: wrap;
         box-sizing: border-box;
@@ -97,7 +102,7 @@ ul{
 
         padding: .25rem .05rem .05rem .3rem;
         color: #808080;
-        font-size: 13px;
+        font-size: .25rem2g;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -114,10 +119,14 @@ ul{
         text-decoration: line-through;
     }
     .slogan{
+        width: 90%;
         padding-left: .3rem;
-        font-size: .2rem;
+        font-size: .22rem;
         color: #808080;
         padding-top: .05rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
     .more{
     font-size: .26rem;

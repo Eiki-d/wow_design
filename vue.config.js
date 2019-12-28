@@ -20,7 +20,10 @@ module.exports = {
       },
       '/api': {
         target: 'http://www.huahaicang.cn'
+      },
+      '/itemdetail':{
+          target: 'https://m.wowdsgn.com'
       }
-    }
   }
+}
 }
