@@ -12,7 +12,7 @@
       </div> -->
     </div>
     <div class="cart-item">
-      <p class="title">唯品国际发货</p>
+      <p class="title"></p>
       <div class="product-warp">
         <div class="item-group">
           <div class="item-warp">
@@ -104,14 +104,9 @@ export default {
   }
 }
 .cart-item{
-  .title{
-    padding: .2rem;
-    color: #999;
-    font-size: .26rem;
-  }
   .footer{
     position: fixed;
-    bottom: 1rem;
+    bottom: .5rem;
     width: 100%;
     height: 1rem;
     background-color: #333;
