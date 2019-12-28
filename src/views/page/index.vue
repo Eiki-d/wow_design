@@ -14,7 +14,7 @@
         </div>
         
         <div class="page-module-banner-group-fixed-landscape">
-          <div v-for="i in item.moduleContent.banners" :key="i.bannerLinkTargetId" @click="i.bannerLinkType==6?handleClick(i.bannerLinkTargetId):(i.bannerLinkType==10?handleClick2(i.bannerLinkTargetId):handleClick3(i.bannerLinkTargetId))">
+          <div v-for="i in item.moduleContent.banners" :key="i.bannerLinkTargetId" @click="i.bannerLinkType==6?handleClick(i.bannerLinkTargetId):(i.bannerLinkType==10||i.bannerLinkType==11?handleClick2(i.bannerLinkTargetId):handleClick3(i.bannerLinkTargetId))">
             <img :src="i.bannerImgSrc" alt="">
           </div>
         </div>
@@ -77,8 +77,8 @@ export default {
     handleClick3(bannerLinkTargetId){
       // console.log("132")
       this.$router.push({name:"brand",params: {id : bannerLinkTargetId}}),
-      localStorage.setItem("banner_id",this.$route.params.id)
-      localStorage.getItem("banner_id")||this.$route.params.id
+      localStorage.setItem("brand_id",this.$route.params.id)
+      localStorage.getItem("brand_id")||this.$route.params.id
     },
 
     myLoadMore(){
