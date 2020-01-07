@@ -3,7 +3,7 @@
       <!-- <p>{{this.$route.params.myid}}</p> -->
       
       <ul v-infinite-scroll="loadMore" infinite-scroll-disabled="loading" infinite-scroll-distance="100" infinite-scroll-immediate-check="false">
-          <router-link v-for="data in datalist" :key="data.myid" @click="handleClick(data.myid)" tag="li" to="/detail/:id" class="list">
+          <router-link v-for="data in datalist" :key="data.myid" @click="handleClick(data.myid,data.productId)" tag="li" to="/detail/:id" class="list">
               <img :src="data.productImg">
               <p class="title">{{data.productTitle}}</p>
               <span class="pri">￥{{data.sellPrice}}</span>
@@ -26,6 +26,7 @@ export default {
         return {
             datalist:[],
             myid: localStorage.getItem('myid'),
+            // id: localStorage.getItem('proid'),
             current:1,
             loading:false,
             total:0,
@@ -45,7 +46,7 @@ export default {
       Axios({
         url:  `/pages/category/${localStorage.getItem("asd")||this.$route.params.myid}?currentPage=${this.current}&sort=onShelfTime&order=desc&_=1577100628198`
       }).then(res => {
-        console.log(res.data.data)
+        // console.log(res.data.data)
         this.datalist = [...this.datalist,...res.data.data]
         Indicator.close();
         this.loading = false;
@@ -53,8 +54,10 @@ export default {
       })
     },
 
-        handleClick(myid){
+        handleClick(myid,productId){
             localStorage.setItem("asd",this.$route.params.myid)
+            localStorage.setItem("proid",this.$route.params.id)
+            this.$router.push({params: {myid : myid, id : productId, title:title}})
         }
     },
   mounted() {
@@ -64,12 +67,12 @@ export default {
       spinnerType: 'fading-circle'
     });
     //   localStorage.setItem("asd",this.$route.params.myid)
-    console.log(this.$route.params.myid, 11111111111);
+    // console.log(this.$route);
     Axios({
       url: `/pages/category/${localStorage.getItem("asd")||this.$route.params.myid}?currentPage=1&sort=onShelfTime&order=desc&_=1577100628198`
     }).then(res => {
-      console.log(res.data);
       this.datalist = res.data.data
+      console.log(this.datalist);
       this.total = res.data.data.total
       Indicator.close();
     });

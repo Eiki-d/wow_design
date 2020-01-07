@@ -34,29 +34,19 @@ export default {
       margin-bottom: 0.06rem;
     }
     .searchInfo {
-      // display: inline-block;
       width: 5.4rem;
       height: 0.56rem;
-      // line-height: 0.56rem;
-      // vertical-align: middle;
       background-color: #F5F5F5;
       border-radius: 0.3rem;
-      // margin-left: 0.15rem;
-      // margin-bottom: 0.05rem;
       display: flex;
       align-items: center;
       justify-content: flex-start;
-      // position: relative;
       .iconfont {
-        // display: inline-block;
         width: 0.4rem;
-        // vertical-align: middle;
         margin: 0 0.1rem;
       }
       #searchInput {
         background-color: #F5F5F5;
-        // display: inline-block;
-        // width: 80%;
         height: 0.54rem;
         border: 0px solid #000;
       }

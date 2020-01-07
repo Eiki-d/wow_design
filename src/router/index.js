@@ -5,6 +5,8 @@ import page from '@/views/page'
 import index from '@/views/page/index'
 import productGroup from '@/views/index/productGroup'
 import brand from '@/views/index/brand'
+import new_goods from '@/views/index/new_goods'
+import cat from '@/views/index/cat'
 import living from '@/views/page/living'
 import quality from '@/views/page/quality'
 
@@ -174,6 +176,18 @@ const routes = [
   {
     path: '/register',
     component: register
+  },
+  {
+    path: '/new_goods/:id', // 动态路由
+    component: new_goods,
+    props: true,
+    name: 'new_goods' // 命名路由
+  },
+  {
+    path: '/cat/:id', // 动态路由
+    component: cat,
+    props: true,
+    name: 'cat' // 命名路由
   },
   {
     path: '/*',

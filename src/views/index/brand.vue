@@ -45,7 +45,7 @@ export default {
     Axios({
       url: `/brand/${ localStorage.getItem('brand_id') || this.$route.params.id}/products?pageSize=10&currentPage=1&_=1577495938714`,
     }).then(res => {
-      console.log(res.data.data)
+      // console.log(res.data.data)
       this.datalist = res.data.data
       this.total = res.data.data.total
       Indicator.close()
@@ -66,7 +66,7 @@ export default {
     Axios({
       url: `/brand/${ localStorage.getItem('brand_id') || this.$route.params.id}/products?pageSize=10&currentPage=${this.current}&_=1577495938714`,
     }).then(res => {
-      console.log(res.data.data)
+      // console.log(res.data.data)
       this.datalist = [...this.datalist, ...res.data.data]
       Indicator.close();
       this.loading = false;

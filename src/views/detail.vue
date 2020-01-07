@@ -9,6 +9,9 @@
     <!-- <router-link v-for="data in datalist" :key="data.productId">detail -->
       <!-- <img :src="data.content"> -->
     <!-- </router-link> -->
+    <div class="detail" v-for="data in datalist" :key="data.id">
+      <img :src="data.content">
+    </div>
   </ul>
 </div>
 </template>
@@ -16,20 +19,22 @@
 <script>
 import Axios from 'axios'
 export default {
-  props:[],
+  props:['id'],
   data () {
     return{
-      // datalist:[]
+      datalist:[]
     }
   },
   mounted () {
     Axios({
-      url: `/itemdetail/spuInfos/10395?_=1577428034899`
+      url: `/itemdetail/spuInfos/19176?_=1577428034899`
     }).then(res => {
-      console.log(res.data);
-      this.datalist = res.data.data
+      // console.log(res.data);
+      this.datalist = res.data.data.itemDetailIntroVoList
+      console.log(this.datalist)
       // this.total = res.data.data.total
       // Indicator.close();
+      // console.log(this.$router)
     });
   }
 }
@@ -69,5 +74,10 @@ export default {
         align-content: flex-end;
         margin-right: .3rem;
     }
+}
+.detail {
+  img {
+    width: 100%;
+  }
 }
 </style>

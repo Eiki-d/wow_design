@@ -9,12 +9,12 @@
       infinite-scroll-distance="100" infinite-scroll-immediate-check	="false">
     <ul class="page-content">
       <li class="page-banner-list" v-for="item in datalist" :key="item.moduleId">
-        <div class="banner-img">
+        <div class="banner-img" @click="item.moduleContent.bannerLinkType===9?handleClick5(item.moduleContent.bannerLinkTargetId):handleClick6(item.moduleContent.bannerLinkTargetId)">
           <img :src="item.moduleContent.bannerImgSrc" alt="">
         </div>
         
         <div class="page-module-banner-group-fixed-landscape">
-          <div v-for="i in item.moduleContent.banners" :key="i.bannerLinkTargetId" @click="i.bannerLinkType==6?handleClick(i.bannerLinkTargetId):(i.bannerLinkType==10||i.bannerLinkType==11?handleClick2(i.bannerLinkTargetId):handleClick3(i.bannerLinkTargetId))">
+          <div v-for="i in item.moduleContent.banners" :key="i.bannerLinkTargetId" @click="i.bannerLinkType==6?handleClick(i.bannerLinkTargetId):(i.bannerLinkType==10||i.bannerLinkType==11?handleClick2(i.bannerLinkTargetId):(i.bannerLinkType==9?handleClick4(i.bannerLinkTargetId):handleClick3(i.bannerLinkTargetId)))">
             <img :src="i.bannerImgSrc" alt="">
           </div>
         </div>
@@ -54,7 +54,7 @@ export default {
         this.looplist = res.data.data.modules[0].moduleContent.banners
         this.datalist = res.data.data.modules
         this.total = res.data.data.total
-        // console.log(this.datalist)
+        console.log(this.datalist)
     })
   },
   methods: {
@@ -80,6 +80,22 @@ export default {
       localStorage.setItem("brand_id",this.$route.params.id)
       localStorage.getItem("brand_id")||this.$route.params.id
     },
+    handleClick4(bannerLinkTargetId){
+      // console.log("132")
+      this.$router.push({name:"new_goods",params: {id : bannerLinkTargetId}}),
+      localStorage.setItem("brand_id",this.$route.params.id)
+      localStorage.getItem("brand_id")||this.$route.params.id
+    },
+    handleClick5(bannerLinkTargetId){
+      // console.log("132")
+      this.$router.push({name:"cat",params: {id : bannerLinkTargetId}}),
+      localStorage.setItem("brand_id",this.$route.params.id)
+      localStorage.getItem("brand_id")||this.$route.params.id
+    },
+    handleClick6(bannerLinkTargetId){
+     
+    },
+    
 
     myLoadMore(){
       console.log('到底了！！！')
@@ -95,7 +111,7 @@ export default {
         // console.log(res.data.data)
         this.datalist = [...this.datalist,...res.data.data.modules]
         this.loading = false;
-        // console.log(this.datalist)
+        console.log(this.datalist)
       })
     }
   },
